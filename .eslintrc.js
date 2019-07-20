@@ -14,6 +14,7 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
+    'capitalized-comments': 'off',
     'no-magic-numbers': 'off',
     'node/no-unpublished-require': 'off',
     'one-var': ['error', 'never'],

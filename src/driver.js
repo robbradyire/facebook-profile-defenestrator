@@ -1,7 +1,8 @@
 const WebDriver = require('selenium-webdriver');
 const { Options } = require('selenium-webdriver/chrome');
 
-const switches = ['incognito', 'disable-device-discovery-notifications'];
+// Disable notification request popup, turn on incognito mode
+const switches = ['disable-device-discovery-notifications', 'incognito'];
 
 const options = new Options()
   .addArguments(...switches)
