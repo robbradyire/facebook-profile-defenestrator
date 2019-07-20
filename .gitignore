@@ -62,3 +62,9 @@ typings/
 
 # Vagrant
 .vagrant
+
+# Built execs
+build
+
+# secrets
+secrets.js

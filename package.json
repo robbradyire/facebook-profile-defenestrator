@@ -6,14 +6,15 @@
   "author": "Rob Brady",
   "license": "The Unlicense",
   "private": true,
-  "lint-staged": {
-    "**/*.{js,css,json,md}": "prettier --list-different",
-    "**/*.js": "eslint"
-  },
   "scripts": {
+    "start": "node index.js",
     "lint": "eslint . && prettier --list-different '**/*.{js,css,json,md}'",
     "format": "eslint . --fix && prettier --write '**/*.{js,css,json,md}'",
     "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{js,css,json,md}": "prettier --list-different",
+    "**/*.js": "eslint"
   },
   "dependencies": {
     "selenium-webdriver": "4.0.0-alpha.4"

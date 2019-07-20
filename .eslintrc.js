@@ -8,9 +8,14 @@ module.exports = {
   plugins: ['prettier'],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
     impliedStrict: true,
     jsx: true,
+    sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    'no-console': 'off',
+    'no-magic-numbers': 'off',
+    'node/no-unpublished-require': 'off',
+    'one-var': ['error', 'never'],
+  },
 };
