@@ -1,15 +1,10 @@
-const LIMIT = 4;
-
-const getLoopLimiter = clearAll => {
+const getLoopLimiter = limit => {
   const limiter = {
     count: 0,
   };
-  limiter.reachedLimit = () => {
-    if (!clearAll && limiter.count++ >= LIMIT) {
-      return true;
-    }
-    return false;
-  };
+  limiter.getCount = () => limiter.count;
+  limiter.loop = () => limiter.count++;
+  limiter.reachedLimit = () => limit > 0 && limiter.count >= limit;
   return limiter;
 };
 

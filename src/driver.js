@@ -8,10 +8,16 @@ const options = new Options()
   .addArguments(...switches)
   .excludeSwitches('enable-automation');
 
-const buildDriver = () =>
-  new WebDriver.Builder()
+const buildDriver = async () => {
+  const driver = new WebDriver.Builder()
     .forBrowser('chrome')
     .setChromeOptions(options)
     .build();
+  await driver
+    .manage()
+    .window()
+    .maximize();
+  return driver;
+};
 
 module.exports = buildDriver;
