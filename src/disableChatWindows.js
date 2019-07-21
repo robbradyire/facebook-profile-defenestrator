@@ -1,5 +1,6 @@
 const { WebElementCondition } = require('selenium-webdriver');
 const findElementThatMatches = require('./findElementThatMatches');
+const untilElementsWithin = require('./untilElementsWithin');
 const locators = require('./locators');
 
 const forDisableChatTabs = new WebElementCondition(
@@ -13,7 +14,9 @@ const forDisableChatTabs = new WebElementCondition(
 const disableChatWindows = async driver => {
   const chatBox = await driver.findElement(locators.chatBox);
   await chatBox.click();
-  await chatBox.findElement(locators.chatSettings).click();
+  await driver
+    .wait(untilElementsWithin(chatBox, locators.chatSettings, true))
+    .click();
   return driver.wait(forDisableChatTabs).click();
 };
 

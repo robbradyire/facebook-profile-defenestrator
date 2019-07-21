@@ -28,7 +28,7 @@ buildDriver()
   .then(_driver => {
     driver = _driver;
     return defenestrator(driver, sectionLimit).catch(reason => {
-      console.error(reason.message);
+      console.error(reason);
       process.exitCode = 1;
       throw reason;
     });

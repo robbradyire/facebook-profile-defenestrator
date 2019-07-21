@@ -3,6 +3,7 @@ const locators = require('./locators');
 const { email, password } = require('../secrets');
 const clearLikes = require('./profileSections/likes');
 const leaveGroups = require('./profileSections/groups');
+const disableChatWindows = require('./disableChatWindows');
 
 const run = async (driver, defaultLimit) => {
   await driver.get('https://www.facebook.com');
@@ -14,8 +15,7 @@ const run = async (driver, defaultLimit) => {
     .wait(until.elementLocated(locators.profileButton))
     .getAttribute('href');
 
-  // dis tricky af
-  // await disableChatWindows(driver);
+  await disableChatWindows(driver);
 
   await clearLikes(driver, profileUrl, defaultLimit);
 
@@ -23,6 +23,8 @@ const run = async (driver, defaultLimit) => {
   // await deleteReviews(driver, profileUrl, defaultLimit);
 
   await leaveGroups(driver, profileUrl, defaultLimit);
+
+  await driver.quit();
 };
 
 module.exports = run;

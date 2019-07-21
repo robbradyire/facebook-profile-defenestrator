@@ -18,9 +18,15 @@ const clearLikes = async (driver, profileUrl, limit) => {
   await driver.get(`${profileUrl}/likes`);
 
   do {
-    likedButtons = await driver.wait(
-      until.elementsLocated(locators.likedButton)
-    );
+    try {
+      likedButtons = await driver.wait(
+        until.elementsLocated(locators.likedButton),
+        5000
+      );
+    } catch (error) {
+      console.log('No likes found');
+      return;
+    }
     for (const button of likedButtons) {
       if (limiter.reachedLimit()) break;
 

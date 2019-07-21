@@ -19,15 +19,19 @@ const leaveGroups = async (driver, profileUrl, limit) => {
   await driver.get(`${profileUrl}/groups`);
 
   const groupSection = await driver.wait(
-    until.elementLocated(locators.groupsSection),
-    3000
+    until.elementLocated(locators.groupsSection)
   );
 
   do {
-    editButtons = await driver.wait(
-      untilElementsWithin(groupSection, locators.hiddenEditButton),
-      3000
-    );
+    try {
+      editButtons = await driver.wait(
+        untilElementsWithin(groupSection, locators.hiddenEditButton),
+        5000
+      );
+    } catch (error) {
+      console.log('No groups found');
+      return;
+    }
     for (const button of editButtons) {
       if (limiter.reachedLimit()) break;
 
