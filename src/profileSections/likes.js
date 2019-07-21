@@ -25,9 +25,7 @@ const clearLikes = async (driver, profileUrl, limit) => {
       );
     } catch (error) {
       const count = limiter.getCount();
-      console.log(
-        count === 0 ? 'No likes found' : `Unliked ${limiter.getCount()} pages.`
-      );
+      console.log(count === 0 ? 'No likes found' : `Unliked ${count} pages.`);
       return;
     }
     for (const button of likedButtons) {

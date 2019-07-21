@@ -6,10 +6,6 @@
   "author": "Rob Brady",
   "license": "The Unlicense",
   "private": true,
-  "main": "index.js",
-  "bin": {
-    "start": "./index.js"
-  },
   "scripts": {
     "start": "node index.js",
     "lint": "eslint . && prettier --list-different '**/*.{js,css,json,md}'",

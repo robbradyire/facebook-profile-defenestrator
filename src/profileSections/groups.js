@@ -30,9 +30,7 @@ const leaveGroups = async (driver, profileUrl, limit) => {
       );
     } catch (error) {
       const count = limiter.getCount();
-      console.log(
-        count === 0 ? 'No groups found' : `Left ${limiter.getCount()} groups.`
-      );
+      console.log(count === 0 ? 'No groups found' : `Left ${count} groups.`);
       return;
     }
     for (const button of editButtons) {
