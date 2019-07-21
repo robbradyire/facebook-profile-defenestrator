@@ -11,7 +11,6 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 5000, host_ip: "127.0.0.1"
 
   config.vm.provider "virtualbox" do |vm|
-    vm.name = "cube"
     vm.memory = 2048
     vm.cpus = 2
   end

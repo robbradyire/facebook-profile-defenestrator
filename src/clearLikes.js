@@ -1,24 +1,14 @@
 const { WebElementCondition, until } = require('selenium-webdriver');
 const locators = require('./locators');
 const getLoopLimiter = require('./limit');
-
-const isUnlikeButton = text => /unlike/iu.test(text.trim());
+const findElementThatMatches = require('./findElementThatMatches');
 
 const forUnlikeButton = new WebElementCondition(
   'for unlike button to appear',
-  async driver => {
-    const menuItems = await driver.findElements(locators.menuItem);
-    if (menuItems.length > 0) {
-      const menuTexts = await Promise.all(
-        menuItems.map(item => item.getText())
-      );
-      const index = menuTexts.findIndex(isUnlikeButton);
-      if (index >= 0) {
-        return menuItems[index];
-      }
-    }
-    return false;
-  }
+  driver =>
+    findElementThatMatches(driver, locators.likePopoverItem, text =>
+      /unlike/iu.test(text)
+    )
 );
 
 const clearLikes = async (driver, limit) => {

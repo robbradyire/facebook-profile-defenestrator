@@ -14,6 +14,7 @@ module.exports = {
   },
   rules: {
     'capitalized-comments': 'off',
+    'no-ternary': 'off',
     'id-length': 'off',
     'max-statements': 'off',
     'no-await-in-loop': 'off',
