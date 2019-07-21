@@ -1,7 +1,7 @@
 const { until } = require('selenium-webdriver');
 const buildDriver = require('./driver');
 const locators = require('./locators');
-const { email, password } = require('./secrets');
+const { email, password } = require('../secrets');
 const clearLikes = require('./profileSections/likes');
 const leaveGroups = require('./profileSections/groups');
 
