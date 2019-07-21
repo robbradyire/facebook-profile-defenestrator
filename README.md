@@ -10,6 +10,7 @@ Requirements (this can no doubt be simplified a bit down the line):
 
 To run:
 
+- Set your Facebook language to English
 - Change the email/password in `secrets-example.js` and remove the `-example`
   from the filename
 - yarn install
