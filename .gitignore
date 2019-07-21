@@ -60,11 +60,11 @@ typings/
 # next.js build output
 .next
 
-# Vagrant
-.vagrant
-
 # Built execs
 build
 
 # secrets
 secrets.js
+
+# nodenv
+.node-version

@@ -33,4 +33,4 @@ buildDriver()
       throw reason;
     });
   })
-  .catch(() => closeDriverSession());
+  .finally(() => closeDriverSession());
