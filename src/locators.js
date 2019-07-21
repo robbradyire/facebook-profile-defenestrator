@@ -5,6 +5,9 @@ module.exports = {
   emailInput: css('input[type="email"]'),
   passwordInput: css('input[type="password"]'),
   profileButton: css('a[title="Profile"]'),
+  chatBox: css('.fbChatTypeahead'),
+  chatSettings: css('a[aria-label="Options"]'),
+  chatSettingEntry: css('a[role="menuitemcheckbox"]'),
 
   // General
   popoverItem: css('[role="menuitem"]'),

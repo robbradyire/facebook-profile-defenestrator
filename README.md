@@ -9,7 +9,7 @@ Requirements (this can no doubt be simplified a bit down the line):
 - Chrome & a compatible ChromeDriver version
 
 I'm using Node through Vagrant to avoid messing with my local env too much
-(there's) probably at least 3 smarter ways to do this) - to use it install
+(there's probably at least 3 smarter ways to do this) - to use it install
 Vagrant then run `vagrant up`.
 
 To run:
