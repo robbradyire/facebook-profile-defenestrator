@@ -2,7 +2,7 @@ const { until } = require('selenium-webdriver');
 const buildDriver = require('./driver');
 const locators = require('./locators');
 const { email, password } = require('./secrets');
-const clearLikes = require('./clearLikes');
+const clearLikes = require('./profileSections/likes');
 
 const run = async limit => {
   const driver = await buildDriver();
@@ -14,9 +14,11 @@ const run = async limit => {
   const profileUrl = await driver
     .wait(until.elementLocated(locators.profileButton))
     .getAttribute('href');
-  await driver.get(`${profileUrl}/likes`);
 
-  await clearLikes(driver, limit);
+  await clearLikes(driver, profileUrl, limit);
+
+  // Seemingly a bug when deleting reviews, parking this until fixed
+  // await deleteReviews(driver, profileUrl, limit);
 
   await driver.quit();
 };

@@ -1,12 +1,13 @@
 const defenestrator = require('./src/defenestrator');
 
-// Set to true to run for reals :scream: (todo: make a param)
-const clearAll = false;
+// Clear to run for reals :scream: (todo: make a param)
+// Only removes X entries per profile section when set
+const sectionLimit = 2;
 
 process.on('unhandledRejection', reason => {
   throw reason;
 });
 
-defenestrator(clearAll).catch(reason => {
+defenestrator(sectionLimit).catch(reason => {
   throw reason;
 });
