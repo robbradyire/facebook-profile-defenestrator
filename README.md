@@ -13,5 +13,6 @@ To run:
 - Set your Facebook language to English
 - Change the email/password in `secrets-example.js` and remove the `-example`
   from the filename
-- yarn install
-- yarn start
+- `yarn install`
+- `yarn start`
+- If you have 2fa enabled, confirm as usual and then leave the script to run

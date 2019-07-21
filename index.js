@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const buildDriver = require('./src/driver');
 const defenestrator = require('./src/defenestrator');
 
