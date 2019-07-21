@@ -29,7 +29,10 @@ const leaveGroups = async (driver, profileUrl, limit) => {
         5000
       );
     } catch (error) {
-      console.log('No groups found');
+      const count = limiter.getCount();
+      console.log(
+        count === 0 ? 'No groups found' : `Left ${limiter.getCount()} groups.`
+      );
       return;
     }
     for (const button of editButtons) {
@@ -50,8 +53,6 @@ const leaveGroups = async (driver, profileUrl, limit) => {
       limiter.loop();
     }
   } while (editButtons.length > 0 && !limiter.reachedLimit());
-
-  console.log(`Left ${limiter.getCount()} groups.`);
 };
 
 module.exports = leaveGroups;

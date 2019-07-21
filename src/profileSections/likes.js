@@ -24,7 +24,10 @@ const clearLikes = async (driver, profileUrl, limit) => {
         5000
       );
     } catch (error) {
-      console.log('No likes found');
+      const count = limiter.getCount();
+      console.log(
+        count === 0 ? 'No likes found' : `Unliked ${limiter.getCount()} pages.`
+      );
       return;
     }
     for (const button of likedButtons) {
@@ -35,8 +38,6 @@ const clearLikes = async (driver, profileUrl, limit) => {
       limiter.loop();
     }
   } while (likedButtons.length > 0 && !limiter.reachedLimit());
-
-  console.log(`Unliked ${limiter.getCount()} pages.`);
 };
 
 module.exports = clearLikes;
