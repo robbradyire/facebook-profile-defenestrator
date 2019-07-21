@@ -6,7 +6,6 @@ const findElementThatMatches = async (driverOrElement, locator, textTest) => {
     )).map(text => text.trim());
     const index = elementTexts.findIndex(textTest);
     if (index >= 0) {
-      console.log(elements);
       return elements[index];
     }
   }
